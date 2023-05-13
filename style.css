@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+.container{
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
+.sun{
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+.earth,.moon,.jupiter{
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.12em 0.05em 0em 0em;
+    border-radius: 50%;
+}
+.earth{
+    top: 7.5em;
+    left: 7.5em;
+    width: 25em;
+    height: 25em;
+    animation: orbit 25.5s linear infinite;
+}
+.moon{
+    top: 0.6em;
+    right: -0.8em;
+    width: 8em;
+    height: 8em;
+    animation: orbit 10s linear infinite;
+}
+.jupiter{
+    top: 0em;
+    left: 0em;
+    width: 40em;
+    height: 40em;
+    animation: orbit 50s linear infinite;
+}
+.earth::before,
+.moon::before,
+.jupiter::before{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+.earth::before{
+    top: 3em;
+    right: 1.5em;
+    width: 3em;
+    height: 3em;
+    background-image: url("Earth.jpg");
+    background-size: 5em;
+    box-shadow: inset -0.5em 0.3em 1.2em 0.2em black, inset -0.3em 0 0.6em 0.2em rgb(255,255,255, 0.2);
+    animation: earthRotate 4s linear infinite;
+}
+.moon::before{
+    right: 0.8em;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url("Moon.jpg");
+    background-size: 5em;
+    animation: moonRotate 3s linear infinite;
+}
+.jupiter::before{
+    top: 4.5em;
+    right: 2em;
+    width: 5em;
+    height: 5em;
+    background-color: grey; 
+}
+@keyframes orbit{
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes earthRotate {
+    from{
+        background-position-x: 0em;
+    }
+    to{
+        background-position-x: 5em;
+    }
+}
+@keyframes moonRotate{
+    from{
+        background-position-x: 0em;
+    }
+    to{
+        background-position-x: 5em;
+    }
+}
